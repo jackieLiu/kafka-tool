@@ -1,0 +1,69 @@
+group 'com.ai.tools'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceCompatibility = 1.7
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+ext {
+    baseName="kafka-tool"
+    baseVersion="1.0"
+}
+
+repositories {
+    maven{ url "http://10.1.228.199:18081/nexus/content/groups/public/"  }
+}
+
+dependencies {
+    compile 'commons-io:commons-io:2.4'
+    compile 'com.alibaba:fastjson:1.2.8'
+    compile ('org.apache.kafka:kafka_2.10:0.8.2.1'){
+        exclude group:'junit',module:'junit'
+    }
+
+    testCompile (
+            'junit:junit:4.11'
+    )
+}
+
+task copyReleaseLibs(type: Copy) {
+    from(configurations.runtime)
+    destinationDir file("$buildDir/release/lib")
+
+}
+
+task copyReleaseConf(type: Copy) {
+    from fileTree(dir: 'src/main/resources')
+    destinationDir file("$buildDir/release")
+
+}
+
+task copyReleaseBin(type: Copy) {
+    from fileTree(dir: 'shell')
+    destinationDir file("$buildDir/release/bin")
+
+}
+
+task copyReleaseWeb(type: Copy) {
+    from fileTree(dir: 'src/main/webapp')
+    destinationDir file("$buildDir/release/src/main/webapp")
+
+}
+
+jar {
+    baseName baseName
+    include "com/ai/opt/tools/*/**"
+    version baseVersion
+    destinationDir file("$buildDir/release/lib")
+    manifest {
+        attributes 'packageName': baseName, 'Built-By':  'gradle 2.2','create-date': new Date().format('yyyy-MM-dd HH:mm:ss')
+    }
+}
+//task zipRelease(type: Zip,dependsOn:[jar,copyReleaseLibs,copyReleaseConf,copyReleaseBin,copyReleaseWeb]) {
+task zipRelease(type: Zip,dependsOn:[jar,copyReleaseLibs,copyReleaseConf,copyReleaseBin]) {
+    baseName baseName
+    from "$buildDir/release/"
+}
