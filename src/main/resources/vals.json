@@ -1,1 +1,1 @@
-[{"amount":"30","owner_type":"subs","owner_id":"122301","amount_type":"DATA","event_type":"CASH","amount_mark":"MINUS","source_type":"bmc","tenant_id":"VIV-BYD","system_id":"VIV","event_id":"1460363242758","expanded_info":""}]
+[{"amount":"30","owner_type":"subs","owner_id":"122301","amount_type":"BOOK","event_type":"CASH","amount_mark":"MINUS","source_type":"bmc","tenant_id":"VIV-BYD","system_id":"VIV","event_id":"1460363242758","expanded_info":"{}"}]
