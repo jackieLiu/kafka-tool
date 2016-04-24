@@ -21,6 +21,9 @@ public class KafkaProduceTest {
         KafkaConf.loadConf();
     }
 
+    /**
+     * 配置信息加载测试
+     */
     @Test
     public void loadConfTest(){
         Properties confProperties = KafkaConf.getProps();
@@ -28,13 +31,16 @@ public class KafkaProduceTest {
         Assert.assertEquals(confProperties.size(),7);
     }
 
+    /**
+     * 发送从文件中获取的json内容
+     */
     @Test
     public void sendMsgFromFileTest(){
         kafkaProduce.sendMsgFromFile();
     }
 
     /**
-     * 模拟停止操作
+     * 模拟发送字符串
      */
     @Test
     public void sendOneMsg(){
@@ -63,6 +69,6 @@ public class KafkaProduceTest {
         //扩展信息，用json传递具体信息
         jsonObject.put("expanded_info", "");
         System.out.println(jsonObject.toString());
-        kafkaProduce.sendMsg(jsonObject.toString());
+        kafkaProduce.sendStrMsg(jsonObject.toString());
     }
 }

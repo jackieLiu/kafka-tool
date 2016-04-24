@@ -5,6 +5,7 @@ import com.ai.opt.tools.kafka.exception.ConfigException;
 import org.apache.kafka.common.serialization.ByteArraySerializer;
 import org.apache.kafka.common.serialization.Serializer;
 import org.apache.kafka.common.serialization.StringSerializer;
+import scala.io.BytePickle;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,6 +18,14 @@ import java.util.Properties;
  */
 public class KafkaConf {
     private static Properties props;
+    /**
+     * 发送值得类型
+     */
+    private static String VAL_TYPE;
+    //字符串类型
+    public static final String VAL_TYPE_STRING = "string";
+    //json类型
+    public static final String VAL_TYPE_JSON = "json";
     private static String TOPIC_NAME;
     //key序列化方式
     private static Serializer KEY_SERIALIZER = new StringSerializer();
@@ -37,6 +46,10 @@ public class KafkaConf {
 
     public static Serializer getValueSerializer() {
         return VALUE_SERIALIZER;
+    }
+
+    public static String getValType(){
+        return VAL_TYPE;
     }
 
     /**
@@ -64,6 +77,8 @@ public class KafkaConf {
 //            org.apache.kafka.common.serialization.StringSerializer
             KEY_SERIALIZER = getSerializer(props.getProperty("key.serializer.type","string"));
             VALUE_SERIALIZER = getSerializer(props.getProperty("value.serializer.type","string"));
+            //发送类型
+            VAL_TYPE = props.getProperty("val.type","string");
             //删除无用配置
             props.remove("key.serializer.type");
             props.remove("value.serializer.type");
