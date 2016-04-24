@@ -1,9 +1,13 @@
 package com.ai.opt.tools.kafka;
 
+import com.ai.opt.tools.kafka.exception.ConfigException;
+import com.ai.opt.tools.kafka.util.KafkaConf;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Properties;
 
 /**
  * Created by jackieliu on 16/4/11.
@@ -12,15 +16,16 @@ public class KafkaProduceTest {
     KafkaProduce kafkaProduce;
 
     @Before
-    public void initBeans(){
+    public void initBeans() throws ConfigException {
         kafkaProduce = new KafkaProduce();
-        kafkaProduce.loadConf();
+        KafkaConf.loadConf();
     }
 
     @Test
     public void loadConfTest(){
-        System.out.println(kafkaProduce.props.toString());
-        Assert.assertEquals(kafkaProduce.props.size(),9);
+        Properties confProperties = KafkaConf.getProps();
+        System.out.println(confProperties.toString());
+        Assert.assertEquals(confProperties.size(),7);
     }
 
     @Test
