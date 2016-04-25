@@ -1,7 +1,6 @@
-package com.ai.opt.tools.kafka;
+package com.lt.tools.kafka;
 
-import com.ai.opt.tools.kafka.exception.ConfigException;
-import com.ai.opt.tools.kafka.util.KafkaConf;
+import com.lt.tools.kafka.util.KafkaConf;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;

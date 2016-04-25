@@ -1,7 +1,7 @@
-package com.ai.opt.tools.kafka;
+package com.lt.tools.kafka;
 
-import com.ai.opt.tools.kafka.exception.ConfigException;
-import com.ai.opt.tools.kafka.util.KafkaConf;
+import com.lt.tools.kafka.exception.ConfigException;
+import com.lt.tools.kafka.util.KafkaConf;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;

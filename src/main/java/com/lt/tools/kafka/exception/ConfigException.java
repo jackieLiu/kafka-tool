@@ -1,4 +1,4 @@
-package com.ai.opt.tools.kafka.exception;
+package com.lt.tools.kafka.exception;
 
 /**
  * Created by jackieliu on 16/4/11.

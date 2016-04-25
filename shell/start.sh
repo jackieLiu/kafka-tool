@@ -19,5 +19,5 @@ LIB_JARS=$DEPLOY_DIR/lib/*
 JAVA_OPTS=" -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true "
 
 echo -e "Starting the application ...\c"
-java $JAVA_OPTS -classpath $DEPLOY_DIR:$LIB_JARS com.ai.opt.tools.kafka.KafkaProduce
+java $JAVA_OPTS -classpath $DEPLOY_DIR:$LIB_JARS com.lt.tools.kafka.KafkaProduce
 

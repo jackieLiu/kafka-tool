@@ -1,11 +1,10 @@
-package com.ai.opt.tools.kafka.util;
+package com.lt.tools.kafka.util;
 
-import com.ai.opt.tools.kafka.KafkaProduce;
-import com.ai.opt.tools.kafka.exception.ConfigException;
+import com.lt.tools.kafka.KafkaProduce;
+import com.lt.tools.kafka.exception.ConfigException;
 import org.apache.kafka.common.serialization.ByteArraySerializer;
 import org.apache.kafka.common.serialization.Serializer;
 import org.apache.kafka.common.serialization.StringSerializer;
-import scala.io.BytePickle;
 
 import java.io.IOException;
 import java.io.InputStream;
