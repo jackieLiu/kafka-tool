@@ -55,7 +55,7 @@ task copyReleaseWeb(type: Copy) {
 
 jar {
     baseName baseName
-    include "com/ai/opt/tools/*/**"
+    include "com/lt/tools/*/**"
     version baseVersion
     destinationDir file("$buildDir/release/lib")
     manifest {
