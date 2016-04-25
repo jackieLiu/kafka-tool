@@ -1,4 +1,4 @@
-group 'com.ai.tools'
+group 'com.lt.tools'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
@@ -14,7 +14,7 @@ ext {
 }
 
 repositories {
-    maven{ url "http://10.1.228.199:18081/nexus/content/groups/public/"  }
+    maven{ url "http://maven.oschina.net/content/groups/public/"  }
 }
 
 dependencies {
