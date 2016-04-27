@@ -13,6 +13,8 @@
 ## 工具使用   
 ### 配置发送内容类型 
 现支持发送string字符和json内容.在发送之前先修改`kafka.properties`文件中的`val.type`.
+
 __demoJsonVals.txt__ 为json格式文件示例
+
 **demoStringVals.txt** 为字符串格式文件示例
 
